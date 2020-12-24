@@ -21,7 +21,7 @@ const Header = props => {
       <Navbar className = "navStyles" variant = "dark">
           <Nav activeKey={location.pathname}>
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/documentation">Documentation</Nav.Link>
+              <Nav.Link href="/documentation">Docs</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/lab">Lab</Nav.Link>
           </Nav>
@@ -39,12 +39,12 @@ function App() {
   return (
         <div className = "backdrop p-0 bg-dark text-white ">
           <HeaderWithRouter/>
-          <div className = "pageAnchors justify-content-center">
-            <Route path="/" exact component={Home} />
-            <Route path="/documentation" exact component={Documentation} />
-            <Route path="/about" exact component={About} />
-            <Route path="/lab" exact component={Lab} />
-          </div>
+
+          <Route path="/" exact component={Home} />
+          <Route path="/documentation" exact component={Documentation} />
+          <Route path="/about" exact component={About} />
+          <Route path="/lab" exact component={Lab} />
+
         </div>
 
 

@@ -1,0 +1,17 @@
+.formStyle {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    background-color: orange;
+}
+
+.labContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: yellow
+}
+
+.formContainer {
+    background-color: black;
+}
