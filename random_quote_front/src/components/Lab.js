@@ -3,14 +3,15 @@ import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 const ApiInput = () => {
     
     return(
         <div className = "formContainer">
-            <Form className = "formStyle">
+            <Form>
                 <Form.Label>Request for your favorite character!</Form.Label>
-                <Form.Control type="email" placeholder="Enter text here" />                    
+                <Form.Control placeholder="Enter text here" />                    
             </Form>
         </div>
     )
@@ -20,13 +21,20 @@ const ApiInput = () => {
 function Lab() {
     return (
         <div>
-            <Container className = "labContainer ">
-                <Row>
-                    <h1 className = "title">Testing Lab</h1>
+            <Container fluid className = "labContainer">
+                <Row className="lab-header justify-content-center">
+                    <h1>Testing Lab</h1>
                 </Row>
-                <Row>
-                    <ApiInput></ApiInput>
+
+                <Row className="form-style justify-content-center">
+                    <Col xs lg = "4">
+                        <ApiInput></ApiInput>
+                    </Col>
                 </Row>
+                <Row className="button-style justify-content-center">
+                    <Button variant="outline-light">Search URL</Button>
+                </Row>
+
 
             </Container>
         </div>
