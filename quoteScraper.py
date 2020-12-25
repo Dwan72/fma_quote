@@ -1,4 +1,5 @@
 import sys
+import json
 
 print("This script parses a text file to be readable")
 
@@ -10,28 +11,43 @@ if not sys.argv[1]:
 file_name = sys.argv[1]
 
 
-file_obj = open(file_name, mode='r')
-file_output = open("organized_quote.txt", mode='w')
+file_obj = open(file_name, mode='r', encoding="utf-8")
+file_output = open("organized_quote.txt", mode='w', encoding="utf-8")
 
 
-print(file_obj)
+Lines = file_obj.readlines()
+
+
+author = ""
+quoteArray = []
+quote_id = 0
+for line in Lines:
+    quote_txt = ""
+    if line[0].isalpha():
+        author = line.strip("\n")
+    if line[0] =='"':
+        stripped_quote = line.strip("\n")
+        stripped_quote = stripped_quote.strip("\t")
+        stripped_quote = stripped_quote.replace("\\", "")
+        stripped_quote = stripped_quote.replace('"', '')
+        quote_txt = str(quote_id) + "#" + author + "#" + stripped_quote
+        quoteArray.append(quote_txt)
+
+        quote_id += 1
 
 
 
-# for line in file_obj:
-#     if line[0] == "(":
-#         continue
+json_obj_array = []
+for quote in quoteArray:
+    splitted_quote = quote.split("#")
+    json_obj = {
+        "id": splitted_quote[0],
+        "author": splitted_quote[1],
+        "quote": splitted_quote[2]
+    }
+    json_obj_array.append(json_obj)
 
-#     elif line[0] == '"':
-#         continue
+print(json_obj_array)
 
 
-testArray = []
-testObj = {1, "quote1", "alphonse"} 
-testObj2 = {2, "quote2", "joseph"}
-
-testArray.append(testObj)
-testArray.append(testObj2)
-
-print(testArray)
 
