@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let Quote = new Schema({
-    id: {
+    quote_id: {
         type: Number
     },
     author: {

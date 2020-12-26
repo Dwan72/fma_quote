@@ -41,7 +41,7 @@ json_obj_array = []
 for quote in quoteArray:
     splitted_quote = quote.split("#")
     json_obj = {
-        "id": splitted_quote[0],
+        "quote_id": splitted_quote[0],
         "author": splitted_quote[1],
         "quote": splitted_quote[2]
     }
