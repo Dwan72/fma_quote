@@ -29,6 +29,8 @@ const ApiInput = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
+        console.log(inputAddress)
+        
     }
     
     
