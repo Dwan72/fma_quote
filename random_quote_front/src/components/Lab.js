@@ -5,16 +5,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 const axios = require('axios');
 
 
-
-
-function handleInputChange(event) {
-    const target = event.target;
-    const value = target
-}
 
 
 
@@ -22,6 +17,7 @@ const ApiInput = () => {
 
     
     const [inputAddress, setInputAddress] = useState("");
+    const [jsonRequest, setJsonRequest] = useState();
 
     function handleChange(event) {
         setInputAddress(event.target.value)
@@ -29,10 +25,15 @@ const ApiInput = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(inputAddress)
-        
+        let getUrl = "http://localhost:5000/quotes/".concat(inputAddress)
+        axios.get(getUrl)
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
-    
     
     return(
         <Form className="formContainer" onSubmit={handleSubmit}>
@@ -64,10 +65,15 @@ const ApiInput = () => {
                     </Button>
                 </Row>
 
+                <Row className = "mt-4">
+                    <p>
+                        {jsonRequest}
+                    </p>
+                </Row>
+
+
             </Container>
 
-
-            
         </Form>
     )
 }
