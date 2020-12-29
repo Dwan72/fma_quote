@@ -5,6 +5,7 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 import { characters } from '../characters.js';
 
@@ -13,8 +14,8 @@ function Home() {
         function(character){
             return (
                 <Col className="container-fluid mt-4">
-                    <Card style={{ width: '20rem' }}> 
-                        {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                    <Card bg="light" text="dark" style={{ width: '20rem' }}> 
+                        <Card.Img variant="top" src={character.img} />
                         <Card.Body>
                             <Card.Title className="">{character.name}</Card.Title>
                             <Card.Text>
@@ -29,9 +30,13 @@ function Home() {
             )
         }
     )
-    
+
     return (
         <Container>
+            <Jumbotron className="text-dark">
+                <h1>Welcome to the Fullmetal Alchemist Brotherhood API!</h1>
+                <p>Check out the <a href="#">documentation.</a> </p>
+            </Jumbotron>
             <CardDeck>
                 {characterList}
             </CardDeck>
