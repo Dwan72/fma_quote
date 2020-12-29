@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-
+import React, { useState } from 'react';
 const axios = require('axios');
 
 
@@ -18,43 +18,9 @@ function handleInputChange(event) {
 
 
 
-
-
 const ApiInput = () => {
+
     
-    return(
-        <Form className="formContainer" onSubmit={handleSubmit}>
-            <Form.Label>Type an ID from 0-216 for a quote!</Form.Label>
-            <InputGroup>
-                <InputGroup.Prepend>
-                    <InputGroup.Text id="basic-addon1">http://localhost:5000/id/</InputGroup.Text>
-                </InputGroup.Prepend>
-                <Form.Control 
-                className="shadow-none"
-                placeholder="Enter text here" 
-                onChange={handleChange}
-                /> 
-            </InputGroup>
-
-            <Button
-            type="submit" 
-            variant="outline-light"
-            onClick = {handleSubmit}
-            >Make a request
-            </Button>
-
-
-        </Form>
-
-
-
-    )
-}
-
-
-
-function Lab() {
-
     const [inputAddress, setInputAddress] = useState("");
 
     function handleChange(event) {
@@ -65,6 +31,49 @@ function Lab() {
         event.preventDefault();
     }
     
+    
+    return(
+        <Form className="formContainer" onSubmit={handleSubmit}>
+
+            <Container className="justify-content-center">
+                
+                <Row>
+                    <Form.Label>Type an ID from 0-216 for a quote!</Form.Label>
+                </Row>
+                <Row>
+                    <InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Text id="basic-addon1">http://localhost:5000/id/</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <Form.Control 
+                        className="shadow-none"
+                        placeholder="Enter text here" 
+                        onChange={handleChange}
+                        /> 
+                    </InputGroup>
+                </Row>
+                <Row className="justify-content-center mt-4">
+                    <Button
+                    type="submit" 
+                    variant="outline-light"
+                    onClick = {handleSubmit}
+                    
+                    >Make a request
+                    </Button>
+                </Row>
+
+            </Container>
+
+
+            
+        </Form>
+    )
+}
+
+
+
+function Lab() {
+
 
     return (
         <div>
@@ -78,12 +87,6 @@ function Lab() {
                         <ApiInput/>
                     </Col>
                 </Row>
-
-                <Row className="button-style justify-content-center">
-
-                </Row>
-
-
             </Container>
         </div>
 
