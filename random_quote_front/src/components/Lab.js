@@ -17,7 +17,7 @@ const ApiInput = () => {
 
     
     const [inputAddress, setInputAddress] = useState("");
-    const [jsonRequest, setJsonRequest] = useState();
+    const [jsonRequest, setJsonRequest] = useState({});
 
     function handleChange(event) {
         setInputAddress(event.target.value)
@@ -28,12 +28,17 @@ const ApiInput = () => {
         let getUrl = "http://localhost:5000/quotes/".concat(inputAddress)
         axios.get(getUrl)
         .then((res) => {
-            console.log(res)
+
+            setJsonRequest(res.data)
         })
         .catch((error) => {
             console.log(error);
         })
     }
+
+    useEffect(() => {
+        console.log(jsonRequest)
+    })
     
     return(
         <Form className="formContainer" onSubmit={handleSubmit}>
@@ -66,9 +71,7 @@ const ApiInput = () => {
                 </Row>
 
                 <Row className = "mt-4">
-                    <p>
-                        {jsonRequest}
-                    </p>
+                    <Form.Control as="textarea" rows={10} placeholder={jsonRequest.quote} readOnly/>
                 </Row>
 
 
