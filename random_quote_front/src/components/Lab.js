@@ -39,7 +39,7 @@ const ApiInput = () => {
     
     return(
         <Form onSubmit={handleSubmit}>
-            <Container fluid className="justify-content-center">
+            <Container fluid>
                 
                 
                 <Row>
@@ -51,7 +51,7 @@ const ApiInput = () => {
                         <Row>
                             <InputGroup>
                                 <InputGroup.Prepend>
-                                    <InputGroup.Text id="basic-addon1">http://localhost:5000/id/</InputGroup.Text>
+                                    <InputGroup.Text id="basic-addon1">http://localhost:5000/quotes/</InputGroup.Text>
                                 </InputGroup.Prepend>
                                 <Form.Control 
                                 className="shadow-none"
@@ -63,10 +63,9 @@ const ApiInput = () => {
                         <Row className="justify-content-center mt-4">
                             <Button
                             type="submit" 
-                            variant="outline-light"
                             onClick = {handleSubmit}
                                 
-                            >Make a request
+                            >Search!
                             </Button>
                         </Row>
                     </Col>
@@ -75,14 +74,14 @@ const ApiInput = () => {
 
 
 
-                <Row>
+                <Row className="pt-4">
                     <Col></Col>
-                    <Col xs={7}>
+                    <Col xs={6}>
                         <Row>
                             <Form.Label>Results:</Form.Label>
                         </Row>
-                        <Row className = "mt-4">
-                            <Form.Control as="textarea" rows={10} placeholder={jsonRequest} readOnly/>
+                        <Row className = "mt-2">
+                            <Form.Control as="textarea" rows={10} defaultValue={jsonRequest} readOnly />
                         </Row>
                     </Col>
                     <Col></Col>
@@ -102,7 +101,7 @@ function Lab() {
 
     return (
         <div>
-            <Container fluid className = "labContainer">
+            <Container fluid>
                 <Row className="lab-header justify-content-center">
                     <h1>Lab</h1>
                 </Row>

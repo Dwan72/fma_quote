@@ -18,7 +18,7 @@ import Col from 'react-bootstrap/Col';
 const Header = props => {
   const { location } = props; 
   return(
-      <Navbar className = "navStyles" variant = "dark">
+      <Navbar className = "navStyles bg-dark" variant = "dark">
           <Nav activeKey={location.pathname}>
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/documentation">Docs</Nav.Link>
@@ -37,7 +37,7 @@ const HeaderWithRouter = withRouter(Header);
 function App() {
 
   return (
-        <div className = "backdrop p-0 bg-dark text-white ">
+        <div className = "backdrop p-0 ">
           <HeaderWithRouter/>
 
           <Route path="/" exact component={Home} />
